@@ -769,8 +769,18 @@ u32 interact_water_ring(struct MarioState *m, UNUSED u32 interactType, struct Ob
 u32 interact_star_or_key(struct MarioState *m, UNUSED u32 interactType, struct Object *o) {
     u32 starIndex;
     u32 starGrabAction = ACT_STAR_DANCE_EXIT;
+    u32 noExit;
+    switch (gCurrLevelNum) {
+        case LEVEL_BOWSER_1:
+        case LEVEL_BOWSER_2:
+        case LEVEL_BOWSER_3:
+            noExit = FALSE;
+            break;
+        default:
+            noExit = TRUE;
+            break;
+    }
     u32 grandStar = (o->oInteractionSubtype & INT_SUBTYPE_GRAND_STAR) != 0;
-    u32 noExit = !grandStar;//(o->oInteractionSubtype & INT_SUBTYPE_NO_EXIT) != 0; || TODO: key check
 
     if (m->health >= 0x100) {
         mario_stop_riding_and_holding(m);
