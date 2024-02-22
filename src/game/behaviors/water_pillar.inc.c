@@ -68,9 +68,9 @@ void water_level_pillar_drained(void) {
 }
 
 void bhv_water_level_pillar_init(void) {
-    if (save_file_get_flags() & SAVE_FLAG_MOAT_DRAINED) {
+    //if (save_file_get_flags() & SAVE_FLAG_MOAT_DRAINED) {
         o->oWaterLevelPillarDrained = TRUE;
-    }
+    //}
 }
 
 void bhv_water_level_pillar_loop(void) {
