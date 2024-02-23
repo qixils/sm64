@@ -1015,7 +1015,7 @@ s32 play_mode_paused(void) {
         raise_background_noise(1);
         gCameraMovementFlags &= ~CAM_MOVE_PAUSE_SCREEN;
         set_play_mode(PLAY_MODE_NORMAL);
-    } else { // MENU_OPT_EXIT_COURSE
+    } else if (gMenuOptSelectIndex == MENU_OPT_EXIT_COURSE) {
         if (gDebugLevelSelect) {
             fade_into_special_warp(-9, 1);
         } else {
@@ -1025,6 +1025,12 @@ s32 play_mode_paused(void) {
         }
 
         gCameraMovementFlags &= ~CAM_MOVE_PAUSE_SCREEN;
+    } else if (gMenuOptSelectIndex == MENU_OPT_EXIT_ALT) {
+        raise_background_noise(1);
+        gCameraMovementFlags &= ~CAM_MOVE_PAUSE_SCREEN;
+        set_play_mode(PLAY_MODE_NORMAL);
+        gMarioState->numLives++; // ensure player doesn't lose life or gameover
+        level_trigger_warp(gMarioState, WARP_OP_DEATH);
     }
 
     return 0;
