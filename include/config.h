@@ -30,9 +30,11 @@
 #define BUGFIX_BOWSER_FALLEN_OFF_STAGE (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_CN)
 /// Fixes bug where Bowser would look weird while fading out
 #define BUGFIX_BOWSER_FADING_OUT (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_CN)
+/// Fixes BLJs
+#define BUGFIX_BACKWARDS_LONG_JUMP (1 || VERSION_SH || VERSION_CN)
 
 // Support Rumble Pak
-#define ENABLE_RUMBLE (0 || VERSION_SH || VERSION_CN)
+#define ENABLE_RUMBLE (1 || VERSION_SH || VERSION_CN)
 
 // Screen Size Defines
 #define SCREEN_WIDTH 320
