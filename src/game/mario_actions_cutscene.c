@@ -4,6 +4,7 @@
 #include "sm64.h"
 #include "area.h"
 #include "audio/external.h"
+#include "behavior_actions.h"
 #include "behavior_data.h"
 #include "camera.h"
 #include "dialog_ids.h"
@@ -523,6 +524,9 @@ s32 act_reading_sign(struct MarioState *m) {
             // dialog finished
             if (gCamera->cutscene == 0) {
                 disable_time_stop();
+                if ((m->usedObj->oPosX-622)<1 && (m->usedObj->oPosY+4331)<1 && (m->usedObj->oPosZ-5466)<1) {
+                    bhv_spawn_star_no_level_exit(STAR_INDEX_100_COINS);
+                }
                 set_mario_action(m, ACT_IDLE, 0);
             }
             break;
